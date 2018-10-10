@@ -9,8 +9,8 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
-  padding: 20px;
+  height: 50px;
+  padding: 10px;
   color: white;
 }
 
@@ -22,6 +22,30 @@
   font-size: large;
 }
 
+.title {
+  padding-left:10px;
+  padding-top:10px;
+  color:white;
+
+}
+
+.blog-bullet{
+  text-align:left
+}
+
+.menu{
+    /*background-color: #eceff1!important;*/
+    border-radius: 0rem !important;
+}
+
+.blog-header{
+  background-color: #e3f2fd!important;
+}
+
+.footer{
+  background-color:'black';
+  bottom: 0px;
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

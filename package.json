@@ -6,11 +6,12 @@
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "^1.1.1"
+    "react-scripts": "^1.1.1",
+    "semantic-ui-react": "^0.78.3"
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "react-scripts build && rm -rf docs && mv build docs",
+    "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
