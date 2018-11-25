@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Redirect,
   Route
 } from 'react-router-dom'
@@ -21,13 +21,13 @@ class App extends Component {
   }
 
     render() {
-
+    window.location.hash = "asdfasdf"
     return (
       <Router>
         <div className="App">
           <Header/>
           <div className="app-body">
-            <Route exact path ='/' render={()=>(<Redirect to="/blog"/>)}/>
+            <Route exact path ='/' component={Blog}/>
             <Route exact path ='/blog' component={Blog}/>
             <Route exact path ='/resources' component={Resources}/>
           </div>
