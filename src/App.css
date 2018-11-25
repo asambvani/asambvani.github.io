@@ -1,5 +1,7 @@
+
 .App {
   text-align: center;
+  height:100%;
 }
 
 .App-logo {
@@ -30,7 +32,8 @@
 }
 
 .blog-bullet{
-  text-align:left
+  text-align:left;
+  padding-left: 10px;
 }
 
 .menu{
@@ -42,9 +45,15 @@
   background-color: #e3f2fd!important;
 }
 
+.app-body{
+
+  min-height:800px;
+
+}
+
 .footer{
-  background-color:'black';
-  bottom: 0px;
+
+  bottom: 0px!important;
 }
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

@@ -1,50 +1,35 @@
 import React, { Component } from 'react';
 import { Menu,Card,Grid } from 'semantic-ui-react'
+import Intro from './intro'
 import './App.css';
 
 class Blog extends Component {
 
+  state = {
+    blogData:[]
+  }
+
+
+  componentDidMount(){
+      const APILink  = "https://sheets.googleapis.com/v4/spreadsheets/1RSzNQiPhToJKok5PA2qR6kpbSu2qbgXH-8Mwg5_-lsY/values:batchGet?ranges=blog&majorDimension=ROWS&key=AIzaSyB4_EXNg80GMYCJpKiBqXCPNMIgA-6CxwM"
+
+      fetch(APILink)
+      .then(response => response.json())
+      .then(data => {
+        let results = data.valueRanges[0].values.slice(1)
+        this.setState({blogData: results})
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
   render(){
 
-    let blog =
-        {  posts: [
-
-            {
-              "title":"Neural Network Glossary",
-              "date": "March 2018",
-              "url": "https://medium.com/@alex.sambvani/neural-network-glossary-72e4f63d34db"
-            },
-            {
-              "title":"A Framework for Quantifying Network Effects on Platforms",
-              "date": "March 2018",
-              "url": "https://medium.com/@alex.sambvani/a-framework-for-quantifying-network-effects-on-platforms-8468411a1b79"
-            },
-            {
-              "title":"Foursquare > Yelp",
-              "date": "October 2017",
-              "url": "https://medium.com/@alex.sambvani/foursquare-yelp-b7b93533841a"
-            },
-            {
-              "title":"Instagram: The Darling of Mobile Advertizing",
-              "date": "October 2017",
-              "url": "https://medium.com/@alex.sambvani/instagram-the-darling-of-mobile-advertising-5185c69f4f99"
-            },
-            {
-              "title":"Why StubHub Keeps Winning",
-              "date": "October 2017",
-              "url": "https://medium.com/@alex.sambvani/why-stubhub-keeps-winning-e931905b2361"
-            },{
-              "title":"Square, Inc.: A Winning Playbook for Data & Analytics Monetization",
-              "date": "May 2017",
-              "url": "https://medium.com/@alex.sambvani/square-inc-a-winning-playbook-for-data-analytics-monetization-565aa3abf7e9"
-            }
-          ]
-        }
-
-      let posts = blog.posts.map((post,index)=>{
+      let posts = this.state.blogData.map((post,index)=>{
         return (
           <div>
-            <li key={index} type="square" className="blog-bullet">[{post.date}] <a href={post.url} target="_blank">{post.title}</a></li>
+            <li key={index} type="square" className="blog-bullet">[{post[0]}] <a href={post[2]} target="_blank">{post[1]}</a></li>
             <br/>
           </div>
         )
@@ -53,19 +38,22 @@ class Blog extends Component {
 
       let description = "Here is a collection of posts I've written on various topics including: tech strategy, network effects, and machine learning / AI."
       return(
-        <Grid>
-          <Grid.Column width={2}></Grid.Column>
-          <Grid.Column width={12}>
-            <Card centered={true} raised={true} fluid={true} white colored text>
-             <Card.Content header="Blog Posts" className="blog-header"/>
-             <Card.Content description={description} />
-             <Card.Content >
-               {posts}
-           </Card.Content>
-           </Card>
-         </Grid.Column>
-         <Grid.Column width={2}></Grid.Column>
-        </Grid>
+        <div>
+          <Intro/>
+          <Grid>
+            <Grid.Column width={2}></Grid.Column>
+            <Grid.Column width={12}>
+              <Card centered={true} raised={true} fluid={true} white colored text>
+               <Card.Content header="Blog Posts" className="blog-header"/>
+               <Card.Content description = {description} />
+               <Card.Content >
+                 {posts}
+             </Card.Content>
+             </Card>
+           </Grid.Column>
+           <Grid.Column width={2}></Grid.Column>
+          </Grid>
+        </div>
       )
   }
 
