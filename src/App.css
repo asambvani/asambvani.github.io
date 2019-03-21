@@ -1,3 +1,14 @@
+.app-body a{
+  color:#0000EE!important;
+}
+
+a {
+  color:inherit;
+}
+
+a:hover {
+  color:inherit;
+}
 
 .App {
   text-align: center;
@@ -27,9 +38,11 @@
 .title {
   padding-left:10px;
   padding-top:10px;
-  color:white;
-
+  color:white!important;
+  text-decoration: none;
 }
+
+
 
 .blog-bullet{
   text-align:left;

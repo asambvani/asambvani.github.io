@@ -31,7 +31,7 @@ state = {
     else{
       return (
           <Menu stackable className='menu' inverted={true}>
-            <h1 className='title'>Alex Sambvani</h1>
+            <h1 className='title'><a href='https://asambvani.github.io/'>Alex Sambvani</a></h1>
             <Menu.Menu position='right' fixed='top'>
               <Menu.Item name='blog' active={activeItem === 'blog'} onClick={this.handleItemClick}>
               <NavLink to='/'>Blog</NavLink>

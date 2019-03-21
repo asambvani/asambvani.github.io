@@ -11,6 +11,9 @@ class Footer extends Component {
     } else if (e.target.id=='gitHub'){
       window.open('https://github.com/asambvani',"_blank");
     }
+    else if (e.target.id=='twitter'){
+      window.open('https://twitter.com/sambvani',"_blank");
+    }
   }
 
 
@@ -24,6 +27,7 @@ class Footer extends Component {
               <Grid.Column>
                 <Icon name='linkedin square' id='linkedIn' size='huge' link={true} onClick={this.openFooterLink}></Icon>
                 <Icon name='github square' size='huge' id='gitHub' link={true} onClick={this.openFooterLink}></Icon>
+                <Icon name='twitter square' size='huge' id='twitter' link={true} onClick={this.openFooterLink}></Icon>
               </Grid.Column>
             </Grid.Row>
             <Grid.Row color='black'>
